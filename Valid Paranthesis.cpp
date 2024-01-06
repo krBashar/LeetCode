@@ -18,21 +18,32 @@ public:
                 {
                     st.push(s[i]);
                 }
+                else if((s[i]==')' || s[i]=='}' || s[i]==']') && st.empty())
+                {
+                    f = false;
+                    break;
+                }
                 else if(s[i]==')')
                 {
-                    if(st.top()!='(' || st.size()==0)
+                    char cc = st.top();
+
+                    if(cc!='(' || st.size()==0)
                     {f=false; break;}
                     else {st.pop();}
                 }
                 else if(s[i]=='}')
                 {
-                    if(st.top()!='{' || st.size()==0)
+                    char cc = st.top();
+
+                    if(cc!='{' || st.size()==0)
                     {f=false; break;}
                     else {st.pop();}
                 }
                 else if(s[i]==']')
                 {
-                    if(st.top()!='[' || st.size()==0)
+                    char cc = st.top();
+
+                    if(cc!='[' || st.size()==0)
                     {f=false; break;}
                     else {st.pop();}
                 }
